@@ -184,3 +184,37 @@ main{animation:chapter-enter .55s ease both}
 .research-map-note{font-size:11px;color:#738576;text-align:center}
 @media(max-width:700px){.research-map-heading{display:block}.research-map-heading>p{max-width:100%}.research-constellation{min-height:340px;aspect-ratio:auto}.research-constellation svg{display:none}.constellation-core{width:145px;height:145px}.constellation-node{font-size:11px;padding:10px}.node-a{top:4%;left:0}.node-b{top:4%;right:0}.node-c{bottom:4%;left:0}.node-d{bottom:4%;right:0}}
 @media(prefers-reduced-motion:reduce){.constellation-node{animation:none}}
+
+/* Signature experience: searchable command deck */
+.command-hint{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid #dce5db;padding:18px 4px;color:#647a69;font-size:12px}
+.command-launch{border:0;background:transparent;color:#22563b;cursor:pointer;font:600 12px Arial,sans-serif;display:flex;align-items:center;gap:12px}
+.command-launch:hover{text-decoration:underline;text-underline-offset:4px}
+.command-launch kbd{border:1px solid #bbcebd;border-radius:4px;padding:5px 8px;font:11px monospace;background:#f1f5ef}
+.hero-discovery{display:flex;align-items:center;gap:13px;margin:23px 0 4px;font-size:9px;letter-spacing:.15em;color:#6e8974}
+.discovery-line{width:29px;height:1px;background:#588567}
+.command-overlay{position:fixed;inset:0;z-index:150;background:#0d241bbd;backdrop-filter:blur(9px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(50px,12vh,150px) 16px 25px;opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s}
+.command-overlay.is-open{opacity:1;visibility:visible}
+.command-deck{width:min(640px,100%);background:#f8f9f4;color:#214b36;border:1px solid #b5cbb8;box-shadow:0 25px 100px #06170b70;transform:translateY(-16px) scale(.98);transition:transform .3s cubic-bezier(.22,1,.36,1);overflow:hidden}
+.command-overlay.is-open .command-deck{transform:translateY(0) scale(1)}
+.command-search{display:flex;align-items:center;gap:15px;padding:21px 23px;border-bottom:1px solid #d6e1d5}
+.command-search svg{width:22px;height:22px;flex:none}
+.command-search input{border:0;outline:none;background:transparent;min-width:0;flex:1;font:19px Georgia,serif;color:#183e2b}
+.command-search input::placeholder{color:#91a698}
+.command-esc{border:1px solid #d0ddce;padding:6px 8px;font:10px monospace;color:#65806c}
+.command-list{padding:14px;max-height:min(55vh,450px);overflow:auto}
+.command-group{padding:8px 12px;font-size:10px;letter-spacing:.17em;color:#829988}
+.command-result{display:flex;align-items:center;gap:15px;padding:13px 14px;color:#254b38;text-decoration:none;border-radius:4px;transition:background .15s}
+.command-result:hover,.command-result.is-highlighted{background:#e5eee4}
+.command-result-num{font:11px monospace;color:#86a18b;width:25px}
+.command-result-main{flex:1;display:flex;flex-direction:column;gap:4px}
+.command-result-main strong{font:400 21px Georgia,serif}
+.command-result-main small{font:11px Arial,sans-serif;color:#6f8975}
+.command-result-arrow{color:#698a71}
+.command-empty{padding:35px;text-align:center;color:#728775;font-size:13px}
+.command-footer{border-top:1px solid #d6e1d5;display:flex;justify-content:space-between;padding:13px 20px;font-size:10px;color:#819486}
+.command-footer kbd{font:10px monospace;border:1px solid #ccd9cb;padding:3px 5px}
+.command-fab{position:fixed;bottom:22px;left:22px;z-index:35;border:1px solid #779d81;background:#1e4c35;color:#f6f9f3;border-radius:100px;padding:11px 15px;font:11px Arial,sans-serif;cursor:pointer;box-shadow:0 10px 35px #12382330;display:flex;align-items:center;gap:9px;transition:transform .2s,background .2s}
+.command-fab:hover{transform:translateY(-3px);background:#30674b}
+.command-fab svg{width:15px;height:15px}
+@media(max-width:600px){.command-hint{align-items:flex-start;flex-direction:column;gap:8px}.command-fab{bottom:15px;left:12px;padding:11px}.command-fab .fab-label{display:none}.command-deck{max-height:80vh}.command-result-main strong{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.command-overlay,.command-deck,.command-fab{transition:none}}
