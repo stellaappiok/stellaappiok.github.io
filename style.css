@@ -23,3 +23,19 @@
 .journey-index{font-size:11px;color:#7a9182;margin-top:12px;display:block}
 @media(max-width:800px){.portrait{opacity:.7}.journey-toggle{padding:22px}.journey-card.expanded .journey-details{padding:0 22px 24px}}
 @media(prefers-reduced-motion:reduce){.stack-enter,.stack-leave{animation:none!important}.journey-card,.journey-plus,.journey-details{transition:none!important}}
+
+/* Journey: a progressive, fold-open timeline */
+.timeline{border-left:0;position:relative;margin-left:12px;padding-left:0}
+.timeline-track,.timeline-fill{position:absolute;left:0;top:0;width:2px;height:100%;background:#d5dfd6}
+.timeline-fill{height:0;background:#32694f;transition:height .22s linear;z-index:1}
+.milestone{padding:0 0 18px 40px;min-height:105px;cursor:pointer}
+.milestone:before{display:none}
+.milestone-toggle{position:absolute;left:-11px;top:0;width:24px;height:24px;border-radius:50%;border:2px solid #789b84;background:var(--bg);z-index:2;cursor:pointer;transition:background .3s,transform .3s}
+.milestone.expanded .milestone-toggle{background:#32694f;transform:scale(1.18);border-color:#32694f}
+.milestone-content{display:grid;grid-template-rows:0fr;opacity:.65;transition:grid-template-rows .55s ease,opacity .55s ease}
+.milestone-content>p{overflow:hidden;min-height:0;margin:0}
+.milestone.expanded .milestone-content{grid-template-rows:1fr;opacity:1}
+.milestone.expanded .milestone-content>p{margin:8px 0 18px}
+.milestone h3{transition:color .3s}
+.milestone.expanded h3{color:#246545}
+@media(prefers-reduced-motion:reduce){.milestone-content{transition:none}.timeline-fill{transition:none}}
