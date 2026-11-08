@@ -47,3 +47,43 @@
 .journey-rail .journey-card:before{content:'';position:absolute;left:-44px;top:27px;width:14px;height:14px;background:#faf9f6;border:2px solid #6f967d;border-radius:50%;z-index:1;transition:transform .3s,background .3s}
 .journey-rail .journey-card.expanded:before{background:#256b4b;transform:scale(1.25)}
 @media(prefers-reduced-motion:reduce){.journey-rail-fill,.journey-rail .journey-card:before{transition:none}}
+
+/* Studio edition — subtle motion, technical geometry, warm editorial feel */
+:root{--bg:#f9f8f4;--accent:#255a43}
+body{background-image:radial-gradient(circle at 85% 7%,rgba(134,166,141,.09),transparent 35%)}
+.header{position:relative;z-index:8;background:rgba(249,248,244,.88);backdrop-filter:blur(16px)}
+.logo{transition:letter-spacing .25s,color .25s}.logo:hover{letter-spacing:.005em;color:#34785a}
+.nav a{position:relative;transition:color .25s}
+.nav a:focus-visible,.button:focus-visible,.journey-toggle:focus-visible{outline:3px solid #91bc9d;outline-offset:4px}
+.hero{min-height:min(760px,88vh)}
+.hero:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 80% 42%,rgba(68,112,83,.075),transparent 38%)}
+.hero-orbit{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.hero-orbit span{position:absolute;display:block;border:1px solid rgba(43,100,65,.11);border-radius:50%;width:560px;height:560px;right:-80px;top:5%;animation:orbit-drift 14s ease-in-out infinite alternate}
+.hero-orbit span:nth-child(2){width:390px;height:390px;right:20px;top:17%;animation-delay:-5s}
+.hero-orbit span:nth-child(3){width:710px;height:710px;right:-150px;top:-9%;animation-delay:-9s}
+@keyframes orbit-drift{to{transform:translate(18px,-22px) rotate(5deg)}}
+.hero h1{font-size:clamp(46px,6.3vw,83px);text-wrap:balance}
+.hero h1 em{display:inline-block;position:relative}
+.hero h1 em:after{content:'';position:absolute;bottom:-8px;left:0;width:100%;height:2px;background:linear-gradient(90deg,#2f7354,transparent);transform:scaleX(0);transform-origin:left;animation:ink-line 1.2s .7s forwards}
+@keyframes ink-line{to{transform:scaleX(1)}}
+.hero .eyebrow{animation:fade-slide .8s both}
+.hero .intro{animation:fade-slide .9s .18s both}
+.hero .buttons{animation:fade-slide .9s .32s both}
+@keyframes fade-slide{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.portrait{filter:contrast(1.18);transition:filter .7s}
+.portrait:hover{filter:contrast(1.4)}
+.home-ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:17px 0;margin-bottom:28px;mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent)}
+.ticker-track{display:flex;gap:30px;width:max-content;align-items:center;animation:ticker-move 36s linear infinite;font-size:10px;font-weight:700;letter-spacing:.2em;color:#5c806b}
+.ticker-track i{font-size:13px;font-style:normal;color:#8eb49a}
+@keyframes ticker-move{to{transform:translateX(-45%)}}
+.card{position:relative;overflow:hidden}
+.card:before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#4b9672,transparent);transform:translateX(-110%);transition:transform .7s}
+.card:hover:before{transform:translateX(110%)}
+.page-head{position:relative}
+.page-head:after{content:'✳';position:absolute;right:6%;top:14%;font-size:clamp(65px,13vw,160px);font-weight:100;color:rgba(53,104,76,.07);pointer-events:none;animation:slow-spin 30s linear infinite}
+@keyframes slow-spin{to{transform:rotate(360deg)}}
+.section h2{max-width:850px}
+.journey-card{transition:box-shadow .4s,transform .4s}
+.journey-card.expanded{box-shadow:0 12px 35px rgba(34,71,49,.09);transform:translateX(6px)}
+@media(max-width:800px){.hero{min-height:670px}.hero-orbit span{right:-300px}.home-ticker{margin-bottom:12px}.page-head:after{right:0;top:4%}}
+@media(prefers-reduced-motion:reduce){.hero-orbit span,.ticker-track,.page-head:after{animation:none!important}.hero h1 em:after{animation:none;transform:scaleX(1)}}
