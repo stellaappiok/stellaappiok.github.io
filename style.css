@@ -87,3 +87,45 @@ body{background-image:radial-gradient(circle at 85% 7%,rgba(134,166,141,.09),tra
 .journey-card.expanded{box-shadow:0 12px 35px rgba(34,71,49,.09);transform:translateX(6px)}
 @media(max-width:800px){.hero{min-height:670px}.hero-orbit span{right:-300px}.home-ticker{margin-bottom:12px}.page-head:after{right:0;top:4%}}
 @media(prefers-reduced-motion:reduce){.hero-orbit span,.ticker-track,.page-head:after{animation:none!important}.hero h1 em:after{animation:none;transform:scaleX(1)}}
+
+/* Fullscreen editorial navigation */
+.header{position:relative;z-index:50}
+.nav{display:flex;align-items:center;gap:25px}
+.nav .nav-home{font-size:12px}
+.menu-open,.menu-close{font-family:Arial,Helvetica,sans-serif;cursor:pointer}
+.menu-open{border:1px solid #799788;background:transparent;color:var(--ink);padding:11px 15px;display:flex;align-items:center;gap:18px;font-size:12px;letter-spacing:.06em;transition:background .25s,color .25s}
+.menu-open:hover{background:#254f3c;color:#fff}
+.menu-glyph{width:19px;display:flex;flex-direction:column;gap:5px}
+.menu-glyph i{display:block;height:1px;width:100%;background:currentColor;transition:transform .25s}
+.menu-open:hover .menu-glyph i:first-child{transform:translateX(3px)}
+.menu-open:hover .menu-glyph i:last-child{transform:translateX(-3px)}
+.site-menu{position:fixed;inset:0;z-index:100;visibility:hidden;pointer-events:none}
+.site-menu.is-open{visibility:visible;pointer-events:auto}
+.menu-backdrop{position:absolute;inset:0;background:rgba(12,28,19,.45);opacity:0;transition:opacity .45s;backdrop-filter:blur(0)}
+.site-menu.is-open .menu-backdrop{opacity:1;backdrop-filter:blur(7px)}
+.menu-panel{position:absolute;right:0;top:0;width:min(1050px,100%);height:100%;height:100dvh;background:#173b2d;color:#f5f2e9;display:flex;flex-direction:column;padding:clamp(22px,3vw,48px);overflow:auto;transform:translateX(105%);transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.site-menu.is-open .menu-panel{transform:translateX(0)}
+.menu-top,.menu-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.menu-overline,.menu-bottom{font-size:10px;letter-spacing:.18em;color:#a4c1ae}
+.menu-close{border:1px solid #729782;background:transparent;color:#f5f2e9;padding:10px 15px;font-size:13px}
+.menu-close span{font-size:21px;margin-left:13px;vertical-align:middle}
+.menu-close:hover{background:#e9f1e9;color:#173b2d}
+.menu-body{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,100px);align-items:center;flex:1;padding:40px 0}
+.menu-intro .eyebrow{color:#a3cbb0}
+.menu-intro p{font:400 clamp(31px,3.4vw,52px)/1.18 Georgia,serif;letter-spacing:-.04em}
+.menu-intro p em{color:#a3cbb0}
+.menu-aside{font-size:12px;line-height:2;color:#a4bdac;margin-top:35px}
+.menu-links{display:flex;flex-direction:column}
+.menu-links a{display:grid;grid-template-columns:34px 1fr 28px;align-items:baseline;gap:15px;text-decoration:none;color:#f7f4ec;border-bottom:1px solid #4b705d;padding:11px 5px;transition:padding .25s,color .25s,background .25s}
+.menu-links a:first-child{border-top:1px solid #4b705d}
+.menu-links a>span:nth-child(2){font:400 clamp(27px,3.6vw,49px)/1.1 Georgia,serif;letter-spacing:-.035em}
+.menu-links a:hover,.menu-links a:focus-visible{color:#b9e4c3;padding-left:17px;background:#ffffff08}
+.menu-links a[aria-current="page"]{color:#b9e4c3}
+.menu-num{font-size:11px;color:#9fbdac}
+.menu-arrow{font-size:22px;transition:transform .25s}
+.menu-links a:hover .menu-arrow{transform:translate(3px,-3px)}
+.menu-bottom{border-top:1px solid #52705d;padding-top:22px}
+.menu-bottom a{text-decoration:none;color:#e5f2e7}
+body.menu-locked{overflow:hidden}
+@media(max-width:720px){.menu-body{grid-template-columns:1fr;align-content:start;gap:12px;padding:30px 0}.menu-intro p{font-size:30px;margin:12px 0}.menu-aside{display:none}.menu-links a{padding:10px 4px}.menu-links a>span:nth-child(2){font-size:29px}.menu-bottom{font-size:9px}.menu-overline{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.menu-panel,.menu-backdrop,.menu-links a,.menu-arrow{transition:none!important}}
