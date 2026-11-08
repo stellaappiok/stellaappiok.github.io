@@ -39,3 +39,11 @@
 .milestone h3{transition:color .3s}
 .milestone.expanded h3{color:#246545}
 @media(prefers-reduced-motion:reduce){.milestone-content{transition:none}.timeline-fill{transition:none}}
+
+/* Journey line tracks scroll and unfolds the chapter nearest the reading position */
+.journey-rail{position:relative;padding-left:35px;border-left:2px solid #d6e2d9;margin-left:13px}
+.journey-rail-fill{position:absolute;left:-2px;top:0;width:2px;height:0;background:#256b4b;transition:height .2s linear;pointer-events:none}
+.journey-rail .journey-card{position:relative}
+.journey-rail .journey-card:before{content:'';position:absolute;left:-44px;top:27px;width:14px;height:14px;background:#faf9f6;border:2px solid #6f967d;border-radius:50%;z-index:1;transition:transform .3s,background .3s}
+.journey-rail .journey-card.expanded:before{background:#256b4b;transform:scale(1.25)}
+@media(prefers-reduced-motion:reduce){.journey-rail-fill,.journey-rail .journey-card:before{transition:none}}
